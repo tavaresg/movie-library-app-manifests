@@ -7,17 +7,17 @@ spec:
     - default: 1.0.0
       name: IMAGE_TAG
       type: string
-    - default: quay.io/gtavares_pessoal/quinoa-wind-turbine
+    - default: quay.io/gtavares_pessoal/movie-library-app
       name: IMAGE_NAME
       type: string
-    - default: 'https://github.com/tavaresg/quinoa-wind-turbine.git'
+    - default: 'https://github.com/tavaresg/movie-library-app.git'
       name: GIT_REPO
       type: string
     - default: main
       name: GIT_BRANCH
       type: string
     - default: >-
-        https://github.com/tavaresg/quinoa-wind-turbine-manifests.git
+        https://github.com/tavaresg/movie-library-app-manifests.git
       name: MANIFESTS_GIT_REPO
       type: string
     - default: main
@@ -116,7 +116,7 @@ spec:
         - name: GIT_REF
           value: $(params.MANIFESTS_GIT_BRANCH)
         - name: NEW_IMAGE
-          value: quay.io/gtavares_pessoal/quinoa-wind-turbine
+          value: quay.io/gtavares_pessoal/movie-library-app
         - name: NEW_DIGEST
           value: $(tasks.buildah.results.IMAGE_DIGEST)
         - name: KUSTOMIZATION_PATH
