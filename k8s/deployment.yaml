@@ -45,20 +45,6 @@ spec:
         - containerPort: 8443
           protocol: TCP
         resources: {}
-        readinessProbe:
-          httpGet:
-            scheme: HTTP
-            path: /q/health/ready
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            scheme: HTTP
-            path: /q/health/live
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 5
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
