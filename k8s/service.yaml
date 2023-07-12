@@ -15,7 +15,6 @@ metadata:
     app.openshift.io/runtime-version: 1.0.0
   name: movie-library-app
 spec:
-  internalTrafficPolicy: Cluster
   ports:
   - name: 8080-tcp
     port: 8080
