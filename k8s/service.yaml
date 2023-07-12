@@ -5,13 +5,13 @@ metadata:
     openshift.io/generated-by: OpenShiftWebConsole
   creationTimestamp: "2022-09-07T10:55:39Z"
   labels:
-    app: quinoa-wind-turbine
-    app.kubernetes.io/component: quinoa-wind-turbine
-    app.kubernetes.io/instance: quinoa-wind-turbine
-    app.kubernetes.io/name: quinoa-wind-turbine
-    app.kubernetes.io/part-of: wind-turbine
+    app: movie-library-app
+    app.kubernetes.io/component: movie-library-app
+    app.kubernetes.io/instance: movie-library-app
+    app.kubernetes.io/name: movie-library-app
+    app.kubernetes.io/part-of: movie-library
     app.openshift.io/runtime-version: 1.0.0
-  name: quinoa-wind-turbine
+  name: movie-library-app
 spec:
   internalTrafficPolicy: Cluster
   ports:
@@ -24,8 +24,8 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    app: quinoa-wind-turbine
-    deployment: quinoa-wind-turbine
+    app: movie-library-app
+    deployment: movie-library-app
   sessionAffinity: None
   type: ClusterIP
 

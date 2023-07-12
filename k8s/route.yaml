@@ -4,13 +4,13 @@ metadata:
   annotations:
     openshift.io/host.generated: "true"
   labels:
-    app: quinoa-wind-turbine
-    app.kubernetes.io/component: quinoa-wind-turbine
-    app.kubernetes.io/instance: quinoa-wind-turbine
-    app.kubernetes.io/name: quinoa-wind-turbine
-    app.kubernetes.io/part-of: wind-turbine
+    app: movie-library-app
+    app.kubernetes.io/component: movie-library-app
+    app.kubernetes.io/instance: movie-library-app
+    app.kubernetes.io/name: movie-library-app
+    app.kubernetes.io/part-of: movie-library
     app.openshift.io/runtime-version: 1.0.0
-  name: quinoa-wind-turbine
+  name: movie-library-app
 spec:
   port:
     targetPort: 8080-tcp
@@ -19,6 +19,6 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: quinoa-wind-turbine
+    name: movie-library-app
     weight: 100
   wildcardPolicy: None

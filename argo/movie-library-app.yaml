@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wind-turbine
-  namespace: quinoa-wind-turbine
+  name: movie-library
+  namespace: projeto-fenix
 spec:
   destination:
-    namespace: quinoa-wind-turbine
+    namespace: projeto-fenix
     server: https://kubernetes.default.svc
   project: default
   source:
     path: k8s
-    repoURL: https://github.com/tavaresg/quinoa-wind-turbine-manifests
+    repoURL: https://github.com/tavaresg/movie-library-app-manifests
     targetRevision: main
   syncPolicy:
     automated:
