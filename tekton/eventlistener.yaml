@@ -1,11 +1,11 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: wind-turbine
+  name: movie-library
 spec:
   serviceAccountName: pipeline
   triggers:
   - bindings:
-    - ref: wind-turbine
+    - ref: movie-library
     template:
-      ref: wind-turbine
+      ref: movie-library

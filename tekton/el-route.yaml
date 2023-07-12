@@ -4,12 +4,12 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: EventListener
     app.kubernetes.io/part-of: Triggers
-    eventlistener: wind-turbine
-  name: el-wind-turbine
+    eventlistener: movie-library
+  name: el-movie-library
 spec:
   port:
     targetPort: http-listener
   to:
     kind: Service
-    name: el-wind-turbine
+    name: el-movie-library
     weight: 100

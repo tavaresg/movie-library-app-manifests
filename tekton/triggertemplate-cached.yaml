@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: wind-turbine
+  name: movie-library
 spec:
   params:
     - name: git-revision
@@ -14,9 +14,9 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: wind-turbine-pipeline-
+        generateName: movie-library-pipeline-
         labels:
-          tekton.dev/pipeline: wind-turbine-pipeline
+          tekton.dev/pipeline: movie-library-pipeline
       spec:
         params:
           - name: GIT_REPO
@@ -24,7 +24,7 @@ spec:
           - name: GIT_BRANCH
             value: $(tt.params.git-revision)
         pipelineRef:
-          name: wind-turbine-pipeline
+          name: movie-library-pipeline
         workspaces:
           - name: source
             persistentVolumeClaim:

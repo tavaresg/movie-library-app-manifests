@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: wind-turbine-pipeline
+  name: movie-library-pipeline
 spec:
   params:
     - default: 1.0.0
@@ -58,8 +58,7 @@ spec:
         - name: GOALS
           value:
             - package
-            - "-Dquarkus.quinoa.package-manager-install.install-dir=$(workspaces.node-cache.path)"
-            - "-Dquarkus.quinoa.package-manager-command.install-env.NPM_CONFIG_CACHE=$(workspaces.npm-repo.path)"
+            - "-Dquarkus.profile=openshift-cluster"
         - name: PROXY_PROTOCOL
           value: http
         - name: CONTEXT_DIR
