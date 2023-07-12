@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wind-turbine
+  namespace: quinoa-wind-turbine
+spec:
+  destination:
+    namespace: quinoa-wind-turbine
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s
+    repoURL: https://github.com/tavaresg/quinoa-wind-turbine-manifests
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
