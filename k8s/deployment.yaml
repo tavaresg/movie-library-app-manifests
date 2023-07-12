@@ -5,20 +5,20 @@ metadata:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: "false"
   labels:
-    app: quinoa-wind-turbine
-    app.kubernetes.io/component: quinoa-wind-turbine
-    app.kubernetes.io/instance: quinoa-wind-turbine
-    app.kubernetes.io/name: quinoa-wind-turbine
-    app.kubernetes.io/part-of: wind-turbine
+    app: movie-library-app
+    app.kubernetes.io/component: movie-library-app
+    app.kubernetes.io/instance: movie-library-app
+    app.kubernetes.io/name: movie-library-app
+    app.kubernetes.io/part-of: movie-library
     app.openshift.io/runtime: quarkus
-  name: quinoa-wind-turbine
+  name: movie-library-app
 spec:
   progressDeadlineSeconds: 600
   replicas: 5
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: quinoa-wind-turbine
+      app: movie-library-app
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -27,8 +27,8 @@ spec:
   template:
     metadata:
       labels:
-        app: quinoa-wind-turbine
-        deployment: quinoa-wind-turbine
+        app: movie-library-app
+        deployment: movie-library-app
       annotations:
         sidecar.istio.io/inject: 'true'
     spec:
@@ -41,9 +41,9 @@ spec:
             secretKeyRef:
               key: password
               name: infinispan-generated-secret
-        image: quay.io/gtavares_pessoal/quinoa-wind-turbine:1.0.0
+        image: quay.io/gtavares_pessoal/movie-library-app:1.0.0
         imagePullPolicy: IfNotPresent
-        name: quinoa-wind-turbine
+        name: movie-library-app
         ports:
         - containerPort: 8080
           protocol: TCP
