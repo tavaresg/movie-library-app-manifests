@@ -36,11 +36,6 @@ spec:
       - env:
         - name: QUARKUS_PROFILE
           value: openshift-cluster
-        - name: INFINISPAN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: password
-              name: infinispan-generated-secret
         image: quay.io/gtavares_pessoal/movie-library-app:1.0.0
         imagePullPolicy: IfNotPresent
         name: movie-library-app
