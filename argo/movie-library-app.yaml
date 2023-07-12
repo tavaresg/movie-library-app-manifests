@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: movie-library
-  namespace: projeto-fenix
+  namespace: openshift-gitops
 spec:
   destination:
     namespace: projeto-fenix
