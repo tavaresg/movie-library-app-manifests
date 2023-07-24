@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: movie-library-pipeline
+  namespace: projeto-fenix
 spec:
   params:
     - default: 1.0.0
@@ -16,8 +17,7 @@ spec:
     - default: main
       name: GIT_BRANCH
       type: string
-    - default: >-
-        https://github.com/tavaresg/movie-library-app-manifests.git
+    - default: 'https://github.com/tavaresg/movie-library-app-manifests.git'
       name: MANIFESTS_GIT_REPO
       type: string
     - default: main
@@ -58,7 +58,7 @@ spec:
         - name: GOALS
           value:
             - package
-            - "-Dquarkus.profile=openshift-cluster"
+            - '-Dquarkus.profile=openshift-cluster'
         - name: PROXY_PROTOCOL
           value: http
         - name: CONTEXT_DIR
@@ -81,6 +81,15 @@ spec:
           workspace: node-cache
         - name: npm-repo
           workspace: npm-repo
+    - name: sonar-scan
+      runAfter:
+        - maven
+      taskRef:
+        kind: Task
+        name: scan-code
+      workspaces:
+        - name: repository
+          workspace: source
     - name: buildah
       params:
         - name: IMAGE
@@ -101,7 +110,7 @@ spec:
         - name: SKIP_PUSH
           value: 'false'
       runAfter:
-        - maven
+        - sonar-scan
       taskRef:
         kind: ClusterTask
         name: buildah
