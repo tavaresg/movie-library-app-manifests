@@ -1,11 +1,11 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: movie-library
+  name: movlib-evlist
 spec:
   serviceAccountName: pipeline
   triggers:
   - bindings:
-    - ref: movie-library
+    - ref: movlib-pipe-bind
     template:
-      ref: movie-library
+      ref: movlib-trigger

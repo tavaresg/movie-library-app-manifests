@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: movie-library
+  name: movlib-trigger
 spec:
   params:
     - name: git-revision
@@ -13,10 +13,6 @@ spec:
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
-      metadata:
-        generateName: movie-library-pipeline-
-        labels:
-          tekton.dev/pipeline: movie-library-pipeline
       spec:
         params:
           - name: GIT_REPO
@@ -24,22 +20,22 @@ spec:
           - name: GIT_BRANCH
             value: $(tt.params.git-revision)
         pipelineRef:
-          name: movie-library-pipeline
+          name: movlib-pipe
         workspaces:
           - name: source
             persistentVolumeClaim:
-              claimName: app-source
+              claimName: movlib-code-pvc
           - name: maven-repo
             persistentVolumeClaim:
-              claimName: build-cache-pvc
+              claimName: movlib-mvncache-pvc
             subPath: maven-repo
           - name: node-cache
             persistentVolumeClaim:
-              claimName: build-cache-pvc
+              claimName: movlib-mvncache-pvc
             subPath: node-cache
           - name: npm-repo
             persistentVolumeClaim:
-              claimName: build-cache-pvc
+              claimName: movlib-mvncache-pvc
             subPath: npm-repo
           - emptyDir: {}
             name: maven-settings

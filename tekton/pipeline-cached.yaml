@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: movie-library-pipeline
-  namespace: projeto-fenix
+  name: movlib-pipe
+  namespace: prod-pipelines
 spec:
   params:
     - default: 1.0.0
@@ -86,7 +86,7 @@ spec:
         - maven
       taskRef:
         kind: Task
-        name: scan-code
+        name: sonar-scan
       workspaces:
         - name: repository
           workspace: source
