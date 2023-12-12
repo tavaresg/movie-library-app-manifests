@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: movlib-pipe
-  namespace: prod-pipelines
+  namespace: dev-apps
 spec:
   params:
     - default: 1.0.0
