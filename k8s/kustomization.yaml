@@ -4,5 +4,5 @@ resources:
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
-- digest: sha256:51eb632316e86f1392d3daba38c0b2ccf4d31f67bc82b91fb0b4c0d2e0d6505e
+- digest: sha256:47ea96704a3aa98e438b756ead68839aedf5ee0e22c7bdc2a13a1a0451acb222
   name: quay.io/gtavares_pessoal/movie-library-app
