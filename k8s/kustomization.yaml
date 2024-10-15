@@ -6,5 +6,3 @@ kind: Kustomization
 images:
 - digest: sha256:dbb2ba758711fc06a7c5cadac496338298a344bc9cd969beb699485f46100e9b
   name: quay.io/gtavares_pessoal/movie-library-app
-- digest: sha256:36e1fae673065006387c5f32846e70555349cd879ebe922d4828ffda50afda54
-  name: quay.io/gtavares_pessoal/quinoa-wind-turbine
